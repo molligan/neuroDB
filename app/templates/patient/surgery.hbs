@@ -1,0 +1,129 @@
+
+
+<div id='clinicvisit'>
+<form class="ui form">
+
+  <!--
+  SURGERY INFO
+  -->
+
+  <h3 class="ui dividing header">Surgery Information</h3>
+    <div class="two fields">
+      <div class="field">
+        <label>Date of Surgery</label>
+          <div class="field">
+            <input type="text" name="last-name" placeholder="MM-DD-YYYY">
+          </div>
+      </div>
+      <div class="field">
+        <label>Date of Admission</label>
+        <div class="field">
+            <input type="text" name="last-name" placeholder="MM-DD-YYYY">
+        </div>
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Date of Discharge</label>
+          <div class="field">
+            <input type="text" name="last-name" placeholder="MM-DD-YYYY">
+          </div>
+      </div>
+      <div class="field">
+        <label>Operating Surgeon</label>
+        {{ember-selectize
+            content=controller.operatingSurgeon
+            
+            selection=model.item
+            placeholder="Select an item"
+            multiple="true"}}
+      </div>
+    </div>
+
+  <!--
+  PROCEDURE DETAILS
+  -->
+
+  <h3 class="ui dividing header">Procedure Details</h3>
+    <div class="two fields">
+      <div class="field">
+        <label>Tumor Location(s)</label>
+          {{ember-selectize
+            content=controller.tumorLocation
+            
+            selection=model.item
+            placeholder="Select an item"
+            multiple="true"}}
+      </div>
+      <div class="field">
+        <label>Resection</label>
+        {{ui-dropdown class='ui selection dropdown' content=resection prompt='Select Pre-Operative Diagnosis'}}
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Approach</label>
+          {{ember-selectize
+            content=controller.approach
+            
+            selection=model.item
+            placeholder="Select an item"
+            multiple="true"}}
+      </div>
+      <div class="field">
+        <label>Repair Material(s)</label>
+        {{ember-selectize
+            content=controller.repairMaterial
+            
+            selection=model.item
+            placeholder="Select an item"
+            multiple="true"}}
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Notes</label>
+      <textarea></textarea>
+    </div>
+
+  <!--
+  COMPLICATIONS
+  -->
+
+  <h3 class="ui dividing header">Complications</h3>
+    <div class="field">
+      <div class="two ui fluid buttons">
+        <div class="ui positive button">Present</div>
+        <div class="or"></div>
+        <div class="ui button">Not Present</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Complications</label>
+        {{ember-selectize
+            content=controller.complications
+            
+            selection=model.item
+            placeholder="Select an item"
+            multiple="true"}}
+    </div>
+
+    <div class="field">
+      <label>Notes</label>
+      <textarea></textarea>
+    </div>
+
+  <div class="ui error message">
+    <div class="header">We noticed some issues</div>
+  </div>
+  {{#link-to 'patient' class="ui grey button"}}
+    Cancel
+  {{/link-to}}
+  <div class="ui positive right labeled icon button" style="float: right;">
+    Submit<i class="checkmark icon"></i>
+  </div>
+</form>
+</div>

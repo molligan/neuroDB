@@ -1,0 +1,45 @@
+
+<div id='clinicvisit'>
+<form class="ui form">
+  <h4 class="ui dividing header">Patient Registration</h4>
+  <div class="two fields">
+    <div class="field">
+      <label>Name</label>
+      <div class="two fields">
+        <div class="field">
+          {{input type="text" value=firstName placeholder="First Name"}}
+        </div>
+        <div class="field">
+          {{input type="text" value=lastName placeholder="Last Name"}}
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Gender</label>
+      {{ui-dropdown class='ui selection dropdown' content=itemActions value=gender prompt='Gender'}}
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field">
+    <label>MRN</label>
+      {{input type="text" value=mrn placeholder="MRN"}}
+    </div>
+    <div class="field">
+    <label>Date of Birth</label>
+      {{input type="text" value=dateOfBirth placeholder="MM-DD-YYYY"}}
+    </div>
+  </div>
+
+  
+  <div class="ui error message">
+    <div class="header">We noticed some issues</div>
+  </div>
+  {{#link-to 'index' class="ui grey button"}}
+    Cancel
+  {{/link-to}}
+  <div {{action 'registerPatient'}} class="ui positive right labeled icon button" style="float: right;">
+    Register<i class="checkmark icon"></i>
+  </div>
+
+</form>
+</div>

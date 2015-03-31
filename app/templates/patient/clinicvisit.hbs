@@ -1,0 +1,410 @@
+
+
+<div id='clinicvisit'>
+<form class="ui form">
+
+  <!--
+  ENCOUNTER INFO
+  -->
+
+  <h3 class="ui dividing header">Encounter Information</h3>
+    <div class="two fields">
+      <div class="field">
+        <label>Date of Encounter</label>
+          <div class="field">
+            {{input type="text" value=dateOfEncounter placeholder="MM-DD-YYYY"}}
+          </div>
+      </div>
+      <div class="field">
+        <label>Pre-Operative Diagnosis</label>
+        {{ui-dropdown class='ui selection dropdown' content=preoperativeDiagnosis value=selected prompt='Select Pre-Operative Diagnosis'}}
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Presenting Symptoms</label>
+          {{ember-selectize
+            content=controller.presentingSymptoms
+            
+            selection=model.item
+            placeholder="Select an item"
+            multiple="true"}}
+      </div>
+      <div class="field">
+        <label>Past Surgical History</label>
+        {{ember-selectize
+            content=controller.pastSurgicalHistory
+            
+            selection=model.item
+            placeholder="Select an item"
+            multiple="true"}}
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Notes</label>
+      <textarea></textarea>
+    </div>
+
+  <!--
+  PHYSICAL EXAM
+  -->
+
+ <h3 class="ui dividing header">Physical Exam</h3>
+    <h4 class="ui block top attached header">Neuro Exam</h4>
+      <div class="ui bottom attached secondary segment">
+        <div class="field">
+        <div class="two ui fluid buttons">
+          <div class="ui positive button">Normal</div>
+          <div class="or"></div>
+          <div class="ui button">Abnormal</div>
+        </div>
+          </div>
+        <div class="field">
+          <label>CN I</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      <div class="two fields">
+        <div class="field">
+          <label>CN II (Left)</label>
+            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+        <div class="field">
+          <label>CN II (Right)</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>CN III</label>
+            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+        <div class="field">
+          <label>CN III</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>CN IV</label>
+            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+        <div class="field">
+          <label>CN IV</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>CN V</label>
+            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+        <div class="field">
+          <label>CN V</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>CN VI</label>
+            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+        <div class="field">
+          <label>CN VI</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>CN VII</label>
+            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+        <div class="field">
+          <label>CN VII</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>CN VIII</label>
+            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+        <div class="field">
+          <label>CN VIII</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>CN IX</label>
+            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+        <div class="field">
+          <label>CN IX</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>CN X</label>
+            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+        <div class="field">
+          <label>CN X</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>CN XI</label>
+            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+        <div class="field">
+          <label>CN XI</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>CN XII</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+        <div class="field">
+          <label>CN XII</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+        </div>
+      </div>
+    </div>
+
+  <!--
+  LABS
+  -->
+ <h3 class="ui dividing header">Labs</h3>
+    <h4 class="ui block top attached header">Endocrine Panel</h4>
+      <div class="ui bottom attached secondary segment">
+        <div class="field">
+          <div class="two ui fluid buttons">
+            <div class="ui positive button">Available</div>
+            <div class="or"></div>
+            <div class="ui button">Not Available</div>
+          </div>
+        </div>
+      <div class="two fields">
+        <div class="field">
+          <label>T3</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+        <div class="field">
+          <label>Free T4</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>TSH</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+        <div class="field">
+          <label>T3 Uptake</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>AM Cortisol</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+        <div class="field">
+          <label>PM Cortisol</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Prolactin</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+        <div class="field">
+          <label>Somatomedin</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Testosterone</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+        <div class="field">
+          <label>Growth Hormone</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Free Testosterone & Estrogen</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+        <div class="field">
+          <label>Aldosterone</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="field">
+          <label>LS</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+        <div class="field">
+          <label>FSH</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+        <div class="field">
+          <label>ACTH</label>
+            <div class="field">
+              <input type="text" name="presentation" placeholder="Normal">
+            </div>
+        </div>
+      </div>
+    </div>
+
+  <!--
+  IMAGING
+  -->
+
+  <h3 class="ui dividing header">Imaging</h3>
+    <div class="field">
+            <div class="two ui fluid buttons">
+              <div class="ui positive button">Available</div>
+              <div class="or"></div>
+              <div class="ui button">Not Available</div>
+            </div>
+          </div>
+    <div class="two fields">
+      <div class="field">
+        <label>Date of Scan</label>
+          <div class="field">
+            <input type="text" name="last-name" placeholder="MM-DD-YYYY">
+          </div>
+      </div>
+      <div class="field">
+        <label>Scan Type</label>
+        {{ui-dropdown class='ui fluid search selection dropdown' content=scanType prompt='Select'}}
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Tumor Size</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=tumorSize prompt='Select'}}
+      </div>
+      <div class="field">
+        <label>Tumor Location</label>
+        <div class="ui selection dropdown">
+          <input type="hidden" name="gender">
+          <div class="default text">Gender</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item" data-value="male">Male</div>
+            <div class="item" data-value="female">Female</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Metastasis</label>
+        {{ui-dropdown class='ui fluid search selection dropdown' content=metastasis prompt='Select'}}
+      </div>
+      <div class="field">
+        <label>Lateral Expansion</label>
+        {{ui-dropdown class='ui fluid search selection dropdown' content=tumorSize prompt='Select'}}
+        </div>
+    </div>
+
+    <div class="field">
+      <label>Notes</label>
+      <textarea></textarea>
+    </div>
+
+  <!--
+  PATHOLOGY
+  -->
+
+  <h3 class="ui dividing header">Pathology</h3>
+    <div class="field">
+            <div class="two ui fluid buttons">
+              <div class="ui positive button">Available</div>
+              <div class="or"></div>
+              <div class="ui button">Not Available</div>
+            </div>
+          </div>
+    <div class="two fields">
+      <div class="field">
+        <label>Date of Surgical Pathology Report</label>
+          <div class="field">
+            <input type="text" name="last-name" placeholder="MM-DD-YYYY">
+          </div>
+      </div>
+      <div class="field">
+        <label>Histologic Diagnosis</label>
+        {{ui-dropdown class='ui fluid search selection dropdown' content=histologicDiagnosis prompt='Select'}}
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Histologic Invasion</label>
+          {{ui-dropdown class='ui fluid search selection dropdown' content=histologicInvasion prompt='Select'}}
+      </div>
+      <div class="field">
+        <label>Tumor Description</label>
+        {{ui-dropdown class='ui fluid search selection dropdown' content=tumorDescription prompt='Select'}}
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Notes</label>
+      <textarea></textarea>
+    </div>
+
+  <div class="ui error message">
+    <div class="header">We noticed some issues</div>
+  </div>
+  {{#link-to 'patient' class="ui grey button"}}
+    Cancel
+  {{/link-to}}
+  <div {{action 'registerEncounter'}}class="ui positive right labeled icon button" style="float: right;">
+    Submit<i class="checkmark icon"></i>
+  </div>
+</form>
+</div>

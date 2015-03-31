@@ -1,0 +1,32 @@
+{{patient-infobar name=name mrn=mrn dateOfBirth=dateOfBirth gender=gender}}
+
+<div id="new-encounter">
+  <div class="ui grey fluid three item icon menu">
+    {{#link-to 'patient.clinicvisit' class='blue item' tagName='a'}}
+      <i class="big doctor icon"></i><br>Clinic Visit   
+    {{/link-to}}
+    {{#link-to 'patient.surgery' class='blue item' tagName='a'}}
+      <i class="big wizard icon"></i><br>Surgery
+    {{/link-to}}
+    {{#link-to 'patient.research' class='blue item' tagName='a'}}
+      <i class="big bar chart icon"></i><br>Research
+    {{/link-to}}
+  </div>
+</div>
+{{outlet}}
+
+
+		{{#each encounter in controller.encounters}}
+			<div id="examLabels">
+				<div class="grey circular ui label">E</div>
+        <div class="green circular ui label">L</div>
+        <div class="orange circular ui label">P</div>
+        <div class="yellow circular ui label">I</div>
+        <div class="blue circular ui label">O</div>
+			</div>
+			<li>
+				<label>{{encounter.type}} on {{encounter.dateOfEncounter}}</label>
+				<button class="destroy"></button>
+			</li>
+		{{/each}}
+

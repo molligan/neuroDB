@@ -1,0 +1,54 @@
+{{#link-to 'index.newpatient'}}
+<div id="newUser" >
+  {{ui-popup tagName="i" class="black huge add circle icon" content="Register New Patient" variation="inverted"}}  
+</div>
+{{/link-to}}
+
+<section id="todoapp">
+
+  <header id="header">
+    <!--<h1>neuroDB</h1>-->
+    {{input type="text" value=searchText id="new-todo" placeholder="Search for Patient..."}}
+  </header>
+
+
+<section id="main">
+
+<ul id="todo-list" {{action 'clearSearch' on='click'}}>
+  {{#each item in searchResults}}
+    <div id="examLabels">
+      <a class="ui grey label">Clinic Visit<div class="detail">8</div></a>
+      <a class="ui blue label">Surgery<div class="detail">2</div></a>
+    </div>
+    {{#link-to 'patient' item.id tagName='li' }} 
+      <label>{{item.lastName}}, {{item.firstName}} </label>
+      <button class="destroy"></button>
+    {{/link-to}}
+  {{/each}}
+  {{outlet}}
+</ul>
+
+</section>
+
+<footer id="footer">
+    <span id="todo-count">
+      <strong>{{totalPatientCount}}</strong> Patients
+    </span>
+    <ul id="filters">
+      <li>
+        <a href="all" class="selected">All</a>
+      </li>
+      <li>
+        <a href="active">Active</a>
+      </li>
+      <li>
+        <a href="completed">Completed</a>
+      </li>
+    </ul>
+
+  </footer>
+</section>
+
+<footer id="info">
+  <p>Created by Jeremy Molligan</p>
+</footer>

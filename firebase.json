@@ -1,0 +1,9 @@
+{
+  "firebase": "neuro-db",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

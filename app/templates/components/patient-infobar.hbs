@@ -1,0 +1,23 @@
+
+<div id="navbar">
+
+  <div class="ui center aligned page grid">
+    <div class="four column row">
+        <div class="column">
+        {{#link-to 'patient.editPatient' class='editPatient'}}
+            <i class="info white large circle icon" id="editPatient"></i> 
+        {{/link-to}}
+          <strong>Name:</strong> {{name}}
+        </div>
+        <div class="column">
+          <strong>MRN:</strong> {{mrn}}
+        </div>
+        <div class="column">
+          <strong>DOB:</strong> {{dateOfBirth}}
+        </div>
+        <div class="column">
+          <strong>Gender:</strong> {{gender}}
+        </div>
+    </div>
+  </div>
+</div>
