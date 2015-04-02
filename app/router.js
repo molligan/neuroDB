@@ -13,9 +13,11 @@ Router.map(function() {
           this.route('surgery');
           this.route('research');
           this.route('editPatient');
+          this.resource('encounter', {path: '/encounter/:encounter_id'}, function() {
+            this.route('pathology');
+          }); 
       });
-	});
-  
+    });
 });
 
 export default Router;

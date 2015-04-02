@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	//needs: ['index','patient'],
+	needs: ['index','patient'],
 	operatingSurgeon: ['Evans',
 					   'Farrell',
 					   'Judy',

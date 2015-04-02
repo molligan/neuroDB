@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-	needs:['index','patient'],
+	needs:['index','patient', 'encounter'],
+	type: 'Clinic Visit',
 	dateOfEncounter: null,
 	presentingSymptoms: ['Anosmia',
 						 'Epistaxis',
@@ -63,26 +64,43 @@ export default Ember.Controller.extend({
 						  'Other Intracranial Tumor'],
 	histologicInvasion: ['To', 'Be', 'Determined'],
 	tumorDescription: ['Cystic', 'Necrotic', 'Hemorrhagic'],
+	neuroExamStatus: null,
 	actions: {
 		registerEncounter: function() {
-		var patient = this.store.find('patient', this.get('controllers.patient.id'));
-		var self = this;
-		var dateOfEncounter = self.get('dateOfEncounter');
-	    patient.then(function(pat) {
+			var patient = this.store.find('patient', this.get('controllers.patient.id'));
+			var self = this;
+			var dateOfEncounter = self.get('dateOfEncounter');
+		    patient.then(function(pat) {
 				self.store.createRecord('encounter', {
+					type: self.get('type'),
 					dateOfEncounter: dateOfEncounter,
 					preoperativeDiagnosis: self.get('selected'),
 					patient: pat
-			}).save();
+				}).save().then(function() {
+					self.store.createRecord('pathology', {
 
-			self.get('controllers.patient.model').save();		
-		});
+					});
+				});
 
-		this.setProperties({
-			dateOfEncounter: ''
-		});
-			
+				self.get('controllers.patient.model').save();		
+			});
+
+			this.setProperties({
+				dateOfEncounter: ''
+			});
+				
 			this.transitionToRoute('patient', this.get('controllers.patient.id'));
+		},
+		setNeuroExamStatus: function(arg) {
+			if (arg === 'Normal') {
+				this.set('neuroExamStatusSelected', false);
+				this.set('neuroExamStatus', true);
+			} else {
+				this.set('neuroExamStatusSelected', false);
+				this.set('neuroExamStatus', false);
+			}
+			
+			//$('#CNI').removeClass().addClass('ui fluid search selection dropdown');
 		}
 	}
 
