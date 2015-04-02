@@ -65,22 +65,29 @@ export default Ember.Controller.extend({
 	histologicInvasion: ['To', 'Be', 'Determined'],
 	tumorDescription: ['Cystic', 'Necrotic', 'Hemorrhagic'],
 	neuroExamStatus: null,
+	dateOfSurgPathReport: null,
 	actions: {
 		registerEncounter: function() {
 			var patient = this.store.find('patient', this.get('controllers.patient.id'));
 			var self = this;
 			var dateOfEncounter = self.get('dateOfEncounter');
+
 		    patient.then(function(pat) {
-				self.store.createRecord('encounter', {
+				var encounter = self.store.createRecord('encounter', {
 					type: self.get('type'),
 					dateOfEncounter: dateOfEncounter,
 					preoperativeDiagnosis: self.get('selected'),
 					patient: pat
-				}).save().then(function() {
-					self.store.createRecord('pathology', {
-
-					});
 				});
+
+				encounter.save();
+
+				var pathology = self.store.createRecord('pathology', {
+					dateOfSurgPathReport: dateOfEncounter,
+					encounter: encounter
+				});
+
+				pathology.save();
 
 				self.get('controllers.patient.model').save();		
 			});

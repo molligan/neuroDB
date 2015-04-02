@@ -5,7 +5,7 @@ var Encounter = DS.Model.extend({
 	dateOfEncounter: DS.attr('string'),
 	preoperativeDiagnosis: DS.attr('string'),
 	patient: DS.belongsTo('patient', {async: true}),
-	pathology: DS.hasMany('pathology', {async: true})
+	pathologies: DS.hasMany('pathology', {async: true})
 });
 
 export default Encounter;
