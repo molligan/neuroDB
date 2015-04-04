@@ -73,21 +73,23 @@ export default Ember.Controller.extend({
 			var dateOfEncounter = self.get('dateOfEncounter');
 
 		    patient.then(function(pat) {
-				var encounter = self.store.createRecord('encounter', {
+				var clinicvisit = self.store.createRecord('clinic-visit', {
 					type: self.get('type'),
 					dateOfEncounter: dateOfEncounter,
 					preoperativeDiagnosis: self.get('selected'),
-					patient: pat
+					patient: pat,
+					encounter: this
 				});
 
-				encounter.save();
+				//clinicvisit.save();
 
 				var pathology = self.store.createRecord('pathology', {
 					dateOfSurgPathReport: dateOfEncounter,
-					encounter: encounter
+					encounter: clinicvisit
 				});
 
 				pathology.save();
+				clinicvisit.save();
 
 				self.get('controllers.patient.model').save();		
 			});
