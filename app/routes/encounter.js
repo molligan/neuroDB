@@ -5,7 +5,7 @@ export default Ember.Route.extend({
 		return Ember.RSVP.hash({
           encounters: this.store.find('encounter'),
           surgeries: this.store.find('surgery')
-      })
+      });
 	}
 
 });
