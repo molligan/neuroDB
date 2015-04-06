@@ -6,7 +6,8 @@ var Patient = DS.Model.extend({
 	mrn: DS.attr('string'),
 	dateOfBirth: DS.attr('string'),
 	gender: DS.attr('string'),
-	encounters: DS.hasMany('encounter', {async: true})
+	encounters: DS.hasMany('encounter', {async: true}),
+	surgeries: DS.hasMany('surgery', {async: true})
 });
 
 export default Patient;

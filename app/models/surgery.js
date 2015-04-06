@@ -1,8 +1,8 @@
 import DS from 'ember-data';
-import Encounter from './encounter';
 
-export default Encounter.extend({
+export default DS.Model.extend({
+	type: DS.attr('string'),
 	dateOfSurgery: DS.attr('string'),
-	dateOfAdmission: DS.attr('string'),
-	dateOfDischarge: DS.attr('string')
+	operatingSurgeon: DS.attr('string'),
+	patient: DS.belongsTo('patient', {async: true})
 });

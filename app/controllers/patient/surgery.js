@@ -2,12 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 	needs: ['index','patient'],
+	type: 'Surgery',
+	dateOfSurgery: null,
 	operatingSurgeon: ['Evans',
 					   'Farrell',
 					   'Judy',
 					   'Andrews',
 					   'Rosen',
 					   'Nyquist'],
+	item: null,
 	tumorLocation: ['Anterior Fossa',
 					'Cavernous Sinus',
 					'Clivus',
@@ -66,6 +69,31 @@ export default Ember.Controller.extend({
 					'Stroke',
 					'Carotid Artery Rupture',
 					'Epistaxis',
-					'Sphenoiditis']
+					'Sphenoiditis'],
+	actions: {
+		registerSurgery: function() {
+			var patient = this.store.find('patient', this.get('controllers.patient.id'));
+			var self = this;
+			var dateOfSurgery = self.get('dateOfSurgery');
+
+		    patient.then(function(pat) {
+				var surgery = self.store.createRecord('surgery', {
+					type: self.get('type'),
+					dateOfSurgery: dateOfSurgery,
+					operatingSurgeon: self.get('item'),
+					patient: pat
+				});
+
+				surgery.save();
+				self.get('controllers.patient.model').save();
+			});
+
+			this.setProperties({
+				dateOfSurgery: ''
+			});
+				
+			this.transitionToRoute('patient', this.get('controllers.patient.id'));
+		}
+	}
 
 });

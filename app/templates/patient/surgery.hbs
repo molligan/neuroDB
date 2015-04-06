@@ -12,7 +12,7 @@
       <div class="field">
         <label>Date of Surgery</label>
           <div class="field">
-            <input type="text" name="last-name" placeholder="MM-DD-YYYY">
+            {{input type="text" value=dateOfSurgery placeholder="MM-DD-YYYY"}}
           </div>
       </div>
       <div class="field">
@@ -34,8 +34,7 @@
         <label>Operating Surgeon</label>
         {{ember-selectize
             content=controller.operatingSurgeon
-            
-            selection=model.item
+            selection=controller.item
             placeholder="Select an item"
             multiple="true"}}
       </div>
@@ -122,7 +121,7 @@
   {{#link-to 'patient' class="ui grey button"}}
     Cancel
   {{/link-to}}
-  <div class="ui positive right labeled icon button" style="float: right;">
+  <div {{action 'registerSurgery'}}class="ui positive right labeled icon button" style="float: right;">
     Submit<i class="checkmark icon"></i>
   </div>
 </form>

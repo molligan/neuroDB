@@ -14,7 +14,6 @@ Router.map(function() {
           this.route('research');
           this.route('editPatient');
           this.resource('encounter', {path: '/encounter/:encounter_id'}, function() {
-            this.route('pathology');
           }); 
       });
     });
