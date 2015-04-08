@@ -6,11 +6,21 @@
       <div class="two fields">
         <div class="field">
           <label>CN II (Left)</label>
-            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+            {{ember-selectize
+            content=controller.cnIILeft
+            
+            selection=model.cnIILeft
+            placeholder="Normal"
+            multiple="true"}}
         </div>
         <div class="field">
           <label>CN II (Right)</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.cnIIRight
+            
+            selection=model.cnIIRight
+            placeholder="Normal"
+            multiple="true"}}
         </div>
       </div>
       <div class="two fields">

@@ -87,13 +87,13 @@
         <div class="field">
           <label>T3</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="ng/dL">
             </div>
         </div>
         <div class="field">
           <label>Free T4</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="ng/dL">
             </div>
         </div>
       </div>
@@ -101,13 +101,13 @@
         <div class="field">
           <label>TSH</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="%">
             </div>
         </div>
         <div class="field">
           <label>T3 Uptake</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="ul U/mL">
             </div>
         </div>
       </div>
@@ -115,13 +115,13 @@
         <div class="field">
           <label>AM Cortisol</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="ug/dL">
             </div>
         </div>
         <div class="field">
           <label>PM Cortisol</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="ug/dL">
             </div>
         </div>
       </div>
@@ -129,13 +129,13 @@
         <div class="field">
           <label>Prolactin</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="ng/mL">
             </div>
         </div>
         <div class="field">
           <label>Somatomedin</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="ng/mL">
             </div>
         </div>
       </div>
@@ -143,13 +143,13 @@
         <div class="field">
           <label>Testosterone</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="ng/mL">
             </div>
         </div>
         <div class="field">
           <label>Growth Hormone</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="ng/mL">
             </div>
         </div>
       </div>
@@ -157,13 +157,13 @@
         <div class="field">
           <label>Free Testosterone & Estrogen</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="Total">
             </div>
         </div>
         <div class="field">
           <label>Aldosterone</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="??">
             </div>
         </div>
       </div>
@@ -171,19 +171,19 @@
         <div class="field">
           <label>LS</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="mL U/mL">
             </div>
         </div>
         <div class="field">
           <label>FSH</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="ml U/mL">
             </div>
         </div>
         <div class="field">
           <label>ACTH</label>
             <div class="field">
-              <input type="text" name="presentation" placeholder="Normal">
+              <input type="text" name="presentation" placeholder="pg/mL">
             </div>
         </div>
       </div>
@@ -221,15 +221,12 @@
       </div>
       <div class="field">
         <label>Tumor Location</label>
-        <div class="ui selection dropdown">
-          <input type="hidden" name="gender">
-          <div class="default text">Gender</div>
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <div class="item" data-value="male">Male</div>
-            <div class="item" data-value="female">Female</div>
-          </div>
-        </div>
+        {{ember-selectize
+            content=controller.tumorLocation
+            
+            selection=model.item
+            placeholder="Select an item"
+            multiple="true"}}
       </div>
     </div>
 
@@ -240,7 +237,7 @@
       </div>
       <div class="field">
         <label>Lateral Expansion</label>
-        {{ui-dropdown class='ui fluid search selection dropdown' content=tumorSize prompt='Select'}}
+        {{ui-dropdown class='ui fluid search selection dropdown' content=lateralExpansion prompt='Select'}}
         </div>
     </div>
 
@@ -268,15 +265,17 @@
       </div>
       <div class="field">
         <label>Histologic Diagnosis</label>
-        {{ui-dropdown class='ui fluid search selection dropdown' content=histologicDiagnosis prompt='Select'}}
+        {{ember-selectize
+            content=controller.histologicDiagnosis
+            maxItems=1
+            selection=model.item
+            placeholder="Select an item"
+            multiple="true"}}
       </div>
     </div>
 
     <div class="two fields">
-      <div class="field">
-        <label>Histologic Invasion</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=histologicInvasion prompt='Select'}}
-      </div>
+      
       <div class="field">
         <label>Tumor Description</label>
         {{ui-dropdown class='ui fluid search selection dropdown' content=tumorDescription prompt='Select'}}
