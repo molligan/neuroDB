@@ -5,7 +5,7 @@
     <div class="four column row">
         <div class="column">
         {{#link-to 'patient.editPatient' class='editPatient'}}
-        <a class="ui white circular label" id="editPatient">Edit</a>
+        <a class="ui white circular label" id="editPatient">edit</a>
            <!-- <i class="info white large circle icon" id="editPatient"></i> -->
         {{/link-to}}
           <strong>Name:</strong> {{name}}
@@ -14,7 +14,7 @@
           <strong>MRN:</strong> {{mrn}}
         </div>
         <div class="column">
-          <strong>DOB:</strong> {{dateOfBirth}}
+          <strong>DOB:</strong> {{moment dateOfBirth 'MM-DD-YYYY'}}
         </div>
         <div class="column">
           <strong>Gender:</strong> {{gender}}

@@ -1,0 +1,96 @@
+ <!--
+  SURGERY INFO
+  -->
+
+<h3 class="ui dividing header">Surgery Information</h3>
+	<div class="two fields">
+	  <div class="field">
+	    <label>Date of Surgery</label>
+	      <div class="field">
+            <div class="tiny fluid ui button">{{moment model.dateOfEncounter 'MM-DD-YYYY'}}</div>
+          </div>
+	  </div>
+	  <div class="field">
+	    <label>Date of Admission</label>
+	    <div class="field">
+        <div class="field">
+            <div class="tiny fluid ui button">{{moment model.dateOfAdmission 'MM-DD-YYYY'}}</div>
+          </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="two fields">
+	  <div class="field">
+	    <label>Date of Discharge</label>
+	      <div class="field">
+	        <div class="field">
+	            <div class="tiny fluid ui button">
+	            {{moment model.dateOfDischarge 'MM-DD-YYYY'}}
+	            </div>
+	        </div>
+	      </div>
+	  </div>
+	  <div class="field">
+	    <label>Operating Surgeon</label>
+		{{#each surgeon in controller.operatingSurgeon}}
+          <a class="ui large blue label">{{surgeon}}</a>
+        {{/each}}
+	  </div>
+	</div>
+
+
+<!--
+  PROCEDURE DETAILS
+  -->
+
+  <h3 class="ui dividing header">Procedure Details</h3>
+    <div class="two fields">
+      <div class="field">
+        <label>Tumor Location(s)</label>
+        {{#each tumor in controller.tumorLocation}}
+          <a class="ui large blue label">{{tumor}}</a>
+        {{/each}}
+      </div>
+      <div class="field">
+        <label>Resection</label>
+        <div class="tiny fluid ui button">
+            {{model.resection}}
+          </div>
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Approach</label>
+        {{#each surgery in controller.approach}}
+          <a class="ui large blue label">{{surgery}}</a>
+        {{/each}}
+      </div>
+      <div class="field">
+        <label>Repair Material(s)</label>
+        {{ember-selectize
+            content=controller.repairMaterial
+            
+            selection=controller.selectedRepairMaterial
+            placeholder="Select an item"
+            multiple="true"}}
+      </div>
+    </div>
+
+
+  <!--
+  COMPLICATIONS
+  -->
+
+  <h3 class="ui dividing header">Complications</h3>
+
+    <div class="field">
+      <label>Complications</label>
+        {{ember-selectize
+            content=controller.complications
+            
+            selection=controller.selectedComplications
+            placeholder="Select an item"
+            multiple="true"}}
+    </div>

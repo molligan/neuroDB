@@ -1,0 +1,18 @@
+
+
+<div id='clinicvisit'>
+<form class="ui form">
+{{#if encounterType}}
+  {{partial 'encounter-clinicvisit'}}
+{{else}}
+  {{partial 'encounter-surgery'}}
+{{/if}}
+
+  <div class="ui error message">
+    <div class="header">We noticed some issues</div>
+  </div>
+	{{#link-to 'patient' class="ui grey button"}}
+	Back
+	{{/link-to}}
+</form>
+</div>

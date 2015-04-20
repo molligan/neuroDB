@@ -15,32 +15,19 @@
 </div>
 {{outlet}}
 
+{{#each encounter in encounters}}
+  <div id="examLabels">
+    <div class="grey circular ui label">E</div>
+    <div class="green circular ui label">L</div>
+    <div class="orange circular ui label">P</div>
+    <div class="yellow circular ui label">I</div>
+    <div class="blue circular ui label">O</div>
+  </div>
+  {{#link-to 'encounter' encounter.id tagName='li' }} 
+    <label>{{encounter.type}} on {{moment encounter.dateOfEncounter 'MM-DD-YYYY'}}</label>
+    <button {{action 'destroy'}} class="destroy"></button>
+  {{/link-to}}
+{{/each}}
     
-		{{#each surgery in controller.surgeries}}
-			<div id="examLabels">
-				<div class="grey circular ui label">E</div>
-        <div class="green circular ui label">L</div>
-        <div class="orange circular ui label">P</div>
-        <div class="yellow circular ui label">I</div>
-        <div class="blue circular ui label">O</div>
-			</div>
-			<li>
-				<label>{{surgery.type}} on {{surgery.dateOfSurgery}}</label>
-				<button class="destroy"></button>
-			</li>
-		{{/each}}
-    {{#each encounter in controller.encounters}}
-      <div id="examLabels">
-        <div class="grey circular ui label">E</div>
-        <div class="green circular ui label">L</div>
-        <div class="orange circular ui label">P</div>
-        <div class="yellow circular ui label">I</div>
-        <div class="blue circular ui label">O</div>
-      </div>
-      <li>
-        <label>{{encounter.type}} on {{encounter.dateOfEncounter}}</label>
-        <button class="destroy"></button>
-      </li>
-    {{/each}}
     
 

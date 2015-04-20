@@ -1,126 +1,232 @@
 <div id='neuroExam'>
         <div class="field">
           <label>CN I</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam id='CNI' value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            disabled=controller.examDisabled
+            default='Normal'
+            selection=controller.selectedcnI
+            placeholder="Normal"}}
         </div>
       <div class="two fields">
         <div class="field">
           <label>CN II (Left)</label>
             {{ember-selectize
-            content=controller.cnIILeft
-            
-            selection=model.cnIILeft
-            placeholder="Normal"
-            multiple="true"}}
+            content=controller.cnII
+            selection=controller.selectedcnIILeft
+            disabled=controller.examDisabled
+            maxItems=1
+            placeholder="Normal"}}
         </div>
         <div class="field">
           <label>CN II (Right)</label>
           {{ember-selectize
-            content=controller.cnIIRight
-            
-            selection=model.cnIIRight
-            placeholder="Normal"
-            multiple="true"}}
+            content=controller.cnII
+            selection=controller.selectedcnIIRight
+            disabled=controller.examDisabled
+            maxItems=1
+            placeholder="Normal"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>CN III</label>
-            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+            {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnIIILeft
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
         <div class="field">
           <label>CN III</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnIIIRight
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>CN IV</label>
-            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+            {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnIVLeft
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
         <div class="field">
           <label>CN IV</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnIVRight
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>CN V</label>
-            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+            {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnVLeft
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
         <div class="field">
           <label>CN V</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnVRight
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>CN VI</label>
-            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+            {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnVILeft
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
         <div class="field">
           <label>CN VI</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnVIRight
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>CN VII</label>
-            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+            {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnVIILeft
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
         <div class="field">
           <label>CN VII</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnVIIRight
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>CN VIII</label>
-            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+            {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnVIIILeft
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
         <div class="field">
           <label>CN VIII</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnVIIIRight
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>CN IX</label>
-            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+            {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnIXLeft
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
         <div class="field">
           <label>CN IX</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnIXRight
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>CN X</label>
-            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+            {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnXLeft
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
         <div class="field">
           <label>CN X</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnXRight
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>CN XI</label>
-            {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+            {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnXILeft
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
         <div class="field">
           <label>CN XI</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnXIRight
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
       </div>
       <div class="two fields">
         <div class="field">
           <label>CN XII</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnXIILeft
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
         <div class="field">
           <label>CN XII</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=neuroExam value='Normal'}}
+          {{ember-selectize
+            content=controller.neuroExam
+            maxItems=1
+            selection=controller.selectedcnXIIRight
+            disabled=controller.examDisabled
+            placeholder="Normal"}}
         </div>
       </div>
       </div>

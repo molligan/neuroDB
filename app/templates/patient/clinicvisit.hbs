@@ -17,7 +17,13 @@
       </div>
       <div class="field">
         <label>Pre-Operative Diagnosis</label>
-        {{ui-dropdown class='ui selection dropdown' content=preoperativeDiagnosis value=selected prompt='Select Pre-Operative Diagnosis'}}
+        {{ember-selectize
+            content=controller.preoperativeDiagnosis
+            maxItems=1
+            disabled=false
+            selection=controller.selectedPreoperativeDiagnosis
+            placeholder="Select an item"
+            }}      
       </div>
     </div>
 
@@ -26,25 +32,18 @@
         <label>Presenting Symptoms</label>
           {{ember-selectize
             content=controller.presentingSymptoms
-            
-            selection=model.item
-            placeholder="Select an item"
+            selection=controller.selectedPresentingSymptoms
+            placeholder="Select Symptoms"
             multiple="true"}}
       </div>
       <div class="field">
         <label>Past Surgical History</label>
         {{ember-selectize
             content=controller.pastSurgicalHistory
-            
-            selection=model.item
+            selection=controller.selectedPastSurgicalHistory
             placeholder="Select an item"
             multiple="true"}}
       </div>
-    </div>
-
-    <div class="field">
-      <label>Notes</label>
-      <textarea></textarea>
     </div>
 
   <!--
@@ -66,8 +65,6 @@
             {{else}}
               {{partial 'neuro-exam'}}
             {{/if}}
-
-          
     </div>
 
   <!--
@@ -78,115 +75,16 @@
       <div class="ui bottom attached secondary segment">
         <div class="field">
           <div class="two ui fluid buttons">
-            <div class="ui positive button">Available</div>
+            <div {{action 'setLabStatus' true}} class="ui positive button">Available</div>
             <div class="or"></div>
-            <div class="ui button">Not Available</div>
+            <div {{action 'setLabStatus' false}} class="ui button">Not Available</div>
           </div>
         </div>
-      <div class="two fields">
-        <div class="field">
-          <label>T3</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="ng/dL">
-            </div>
-        </div>
-        <div class="field">
-          <label>Free T4</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="ng/dL">
-            </div>
-        </div>
-      </div>
-      <div class="two fields">
-        <div class="field">
-          <label>TSH</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="%">
-            </div>
-        </div>
-        <div class="field">
-          <label>T3 Uptake</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="ul U/mL">
-            </div>
-        </div>
-      </div>
-      <div class="two fields">
-        <div class="field">
-          <label>AM Cortisol</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="ug/dL">
-            </div>
-        </div>
-        <div class="field">
-          <label>PM Cortisol</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="ug/dL">
-            </div>
-        </div>
-      </div>
-      <div class="two fields">
-        <div class="field">
-          <label>Prolactin</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="ng/mL">
-            </div>
-        </div>
-        <div class="field">
-          <label>Somatomedin</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="ng/mL">
-            </div>
-        </div>
-      </div>
-      <div class="two fields">
-        <div class="field">
-          <label>Testosterone</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="ng/mL">
-            </div>
-        </div>
-        <div class="field">
-          <label>Growth Hormone</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="ng/mL">
-            </div>
-        </div>
-      </div>
-      <div class="two fields">
-        <div class="field">
-          <label>Free Testosterone & Estrogen</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="Total">
-            </div>
-        </div>
-        <div class="field">
-          <label>Aldosterone</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="??">
-            </div>
-        </div>
-      </div>
-      <div class="three fields">
-        <div class="field">
-          <label>LS</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="mL U/mL">
-            </div>
-        </div>
-        <div class="field">
-          <label>FSH</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="ml U/mL">
-            </div>
-        </div>
-        <div class="field">
-          <label>ACTH</label>
-            <div class="field">
-              <input type="text" name="presentation" placeholder="pg/mL">
-            </div>
-        </div>
-      </div>
+        {{#if labStatus}}
+          {{partial 'available-lab'}}
+        {{else}}
+          {{partial 'unavailable-lab'}}
+        {{/if}}
     </div>
 
   <!--
@@ -195,56 +93,17 @@
 
   <h3 class="ui dividing header">Imaging</h3>
     <div class="field">
-            <div class="two ui fluid buttons">
-              <div class="ui positive button">Available</div>
-              <div class="or"></div>
-              <div class="ui button">Not Available</div>
-            </div>
-          </div>
-    <div class="two fields">
-      <div class="field">
-        <label>Date of Scan</label>
-          <div class="field">
-            <input type="text" name="last-name" placeholder="MM-DD-YYYY">
-          </div>
-      </div>
-      <div class="field">
-        <label>Scan Type</label>
-        {{ui-dropdown class='ui fluid search selection dropdown' content=scanType prompt='Select'}}
+      <div class="two ui fluid buttons">
+        <div {{action 'setImagingStatus' 'Available'}} class="ui positive button">Available</div>
+        <div class="or"></div>
+        <div {{action 'setImagingStatus' 'Not Available'}} class="ui button">Not Available</div>
       </div>
     </div>
-
-    <div class="two fields">
-      <div class="field">
-        <label>Tumor Size</label>
-          {{ui-dropdown class='ui fluid search selection dropdown' content=tumorSize prompt='Select'}}
-      </div>
-      <div class="field">
-        <label>Tumor Location</label>
-        {{ember-selectize
-            content=controller.tumorLocation
-            
-            selection=model.item
-            placeholder="Select an item"
-            multiple="true"}}
-      </div>
-    </div>
-
-    <div class="two fields">
-      <div class="field">
-        <label>Metastasis</label>
-        {{ui-dropdown class='ui fluid search selection dropdown' content=metastasis prompt='Select'}}
-      </div>
-      <div class="field">
-        <label>Lateral Expansion</label>
-        {{ui-dropdown class='ui fluid search selection dropdown' content=lateralExpansion prompt='Select'}}
-        </div>
-    </div>
-
-    <div class="field">
-      <label>Notes</label>
-      <textarea></textarea>
-    </div>
+    {{#if imagingStatus}}
+      {{partial 'available-imaging'}}
+    {{else}}
+      {{partial 'unavailable-imaging'}}
+    {{/if}}
 
   <!--
   PATHOLOGY
@@ -252,40 +111,17 @@
 
   <h3 class="ui dividing header">Pathology</h3>
     <div class="field">
-            <div class="two ui fluid buttons">
-              <div class="ui positive button">Available</div>
-              <div class="or"></div>
-              <div class="ui button">Not Available</div>
-            </div>
-          </div>
-    <div class="two fields">
-      <div class="field">
-        <label>Date of Surgical Pathology Report</label>
-          {{input type="text" value=dateOfSurgPathReport placeholder="MM-DD-YYYY"}}
-      </div>
-      <div class="field">
-        <label>Histologic Diagnosis</label>
-        {{ember-selectize
-            content=controller.histologicDiagnosis
-            maxItems=1
-            selection=model.item
-            placeholder="Select an item"
-            multiple="true"}}
+      <div class="two ui fluid buttons">
+        <div {{action 'setPathologyStatus' 'Available'}} class="ui positive button">Available</div>
+        <div class="or"></div>
+        <div {{action 'setPathologyStatus' 'Not Available'}} class="ui button">Not Available</div>
       </div>
     </div>
-
-    <div class="two fields">
-      
-      <div class="field">
-        <label>Tumor Description</label>
-        {{ui-dropdown class='ui fluid search selection dropdown' content=tumorDescription prompt='Select'}}
-      </div>
-    </div>
-
-    <div class="field">
-      <label>Notes</label>
-      <textarea></textarea>
-    </div>
+    {{#if pathologyStatus}}
+      {{partial 'available-pathology'}}
+    {{else}}
+      {{partial 'unavailable-pathology'}}
+    {{/if}}
 
   <div class="ui error message">
     <div class="header">We noticed some issues</div>

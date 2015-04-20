@@ -1,0 +1,30 @@
+<div class="two fields">
+  <div class="field">
+    <label>Date of Surgical Pathology Report</label>
+      {{input type="text" value=dateOfSurgPathReport disabled=controller.pathologyDisabled placeholder="MM-DD-YYYY"}}
+  </div>
+  <div class="field">
+    <label>Histologic Diagnosis</label>
+    {{ember-selectize
+        content=controller.histologicDiagnosis
+        maxItems=1
+        disabled=controller.pathologyDisabled
+        selection=controller.selectedHistologicDiagnosis
+        placeholder="Select a Histological Diagnosis"
+        multiple="true"}}
+  </div>
+</div>
+
+<div class="two fields">
+  
+  <div class="field">
+    <label>Tumor Description</label>
+    {{ember-selectize
+        content=controller.tumorDescription
+        maxItems=1
+        disabled=controller.pathologyDisabled
+        selection=controller.selectedTumorDescription
+        placeholder="Select a Tumor Description"}}
+  </div>
+</div>
+<br>

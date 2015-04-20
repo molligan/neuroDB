@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import config from './config/environment';
+import SemanticRouteMixin from 'semantic-ui-ember/mixins/application-route';
 
 var Router = Ember.Router.extend({
   location: config.locationType

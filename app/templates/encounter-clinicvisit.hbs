@@ -1,0 +1,528 @@
+
+  <!--
+  ENCOUNTER INFO
+  -->
+
+  <h3 class="ui dividing header">Encounter Information</h3>
+    <div class="two fields">
+      <div class="field">
+        <label>Date of Encounter</label>
+          <div class="field">
+            <div class="tiny fluid ui button">{{moment model.dateOfEncounter 'MM-DD-YYYY'}}</div>
+          </div>
+      </div>
+      <div class="field">
+        <label>Pre-Operative Diagnosis</label>
+        <a class="ui large blue label">{{controller.preoperativeDiagnosis}}</a>    
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Presenting Symptoms</label>
+        {{#each symptom in controller.presentingSymptoms}}
+          <a class="ui large blue label">{{symptom}}</a>
+        {{/each}}
+      </div>
+      <div class="field">
+        <label>Past Surgical History</label>
+        {{#each surgery in controller.pastSurgicalHistory}}
+          <a class="ui large blue label">{{surgery}}</a>
+        {{/each}}
+      </div>
+    </div>
+
+    <!--<div class="field">
+      <label>Notes</label>
+    </div>-->
+
+  <!--
+  PHYSICAL EXAM
+  -->
+
+ <h3 class="ui dividing header">Physical Exam</h3>
+    <h4 class="ui block top attached header">Neuro Exam</h4>
+      <div class="ui bottom attached secondary segment">
+      <div id='neuroExam'>
+        <div class="field">
+          <label>CN I</label>
+          <div class="tiny fluid ui button" id="cnIlabel">
+            {{#each exam in model.exams}}
+              {{exam.cnI}}
+              {{cnI}}
+            {{/each}}
+          </div>
+        </div>
+		<div class="two fields">
+		<div class="field">
+		  <label>CN II (Left)</label>
+		  <div class="tiny fluid ui button" id="cnIILeftlabel">
+        {{#each exam in model.exams}}
+          {{exam.cnIILeft}}
+          {{cnIILeft}}
+        {{/each}}  
+      </div>
+		</div>
+		<div class="field">
+		  <label>CN II (Right)</label>
+		  <div class="tiny fluid ui button" id="cnIIRightlabel">
+        {{#each exam in model.exams}}
+          {{exam.cnIIRight}}
+          {{cnIIRight}}
+        {{/each}}
+      </div>
+		</div>
+		</div>
+		<div class="two fields">
+		<div class="field">
+		  <label>CN III</label>
+		  <div class="tiny fluid ui button" id="cnIIILeftlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnIIILeft}}
+        {{cnIIILeft}}
+      {{/each}}  
+      </div> 
+		</div>
+		<div class="field">
+		  <label>CN III</label>
+		  <div class="tiny fluid ui button" id="cnIIIRightlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnIIIRight}}
+        {{cnIIIRight}}
+      {{/each}}  
+      </div>
+		</div>
+		</div>
+		<div class="two fields">
+		<div class="field">
+		  <label>CN IV</label>
+		  <div class="tiny fluid ui button" id="cnIVLeftlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnIVLeft}}
+        {{cnIVLeft}}
+      {{/each}}  
+      </div> 
+		</div>
+		<div class="field">
+		  <label>CN IV</label>
+		  <div class="tiny fluid ui button" id="cnIVRightlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnIVRight}}
+        {{cnIVRight}}
+      {{/each}}  
+      </div>
+		</div>
+		</div>
+		<div class="two fields">
+		<div class="field">
+		  <label>CN V</label>
+		  <div class="tiny fluid ui button" id="cnVLeftlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnVLeft}}
+        {{cnVLeft}}
+      {{/each}}  
+      </div>  
+		</div>
+		<div class="field">
+		  <label>CN V</label>
+		  <div class="tiny fluid ui button" id="cnVRightlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnVRight}}
+        {{cnVRight}}
+      {{/each}}  
+      </div>
+		</div>
+		</div>
+		<div class="two fields">
+		<div class="field">
+		  <label>CN VI</label>
+		  <div class="tiny fluid ui button" id="cnVILeftlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnVILeft}}
+        {{cnVILeft}}
+      {{/each}}  
+      </div>  
+		</div>
+		<div class="field">
+		  <label>CN VI</label>
+		  <div class="tiny fluid ui button" id="cnVIRightlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnVIRight}}
+        {{cnVIRight}}
+      {{/each}}  
+      </div>
+		</div>
+		</div>
+		<div class="two fields">
+		<div class="field">
+		  <label>CN VII</label>
+		  <div class="tiny fluid ui button" id="cnVIILeftlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnVIILeft}}
+        {{cnVIILeft}}
+      {{/each}}  
+      </div>  
+		</div>
+		<div class="field">
+		  <label>CN VII</label>
+		  <div class="tiny fluid ui button" id="cnVIIRightlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnVIIRight}}
+        {{cnVIIRight}}
+      {{/each}}  
+      </div>
+		</div>
+		</div>
+		<div class="two fields">
+		<div class="field">
+		  <label>CN VIII</label>
+		  <div class="tiny fluid ui button" id="cnVIIILeftlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnVIIILeft}}
+        {{cnVIIILeft}}
+      {{/each}}  
+      </div> 
+		</div>
+		<div class="field">
+		  <label>CN VIII</label>
+		  <div class="tiny fluid ui button" id="cnVIIIRightlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnVIIIRight}}
+        {{cnVIIIRight}}
+      {{/each}}  
+      </div>
+		</div>
+		</div>
+		<div class="two fields">
+		<div class="field">
+		  <label>CN IX</label>
+		  <div class="tiny fluid ui button" id="cnIXLeftlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnIXLeft}}
+        {{cnIXLeft}}
+      {{/each}}  
+      </div>  
+		</div>
+		<div class="field">
+		  <label>CN IX</label>
+		  <div class="tiny fluid ui button" id="cnIXRightlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnIXRight}}
+        {{cnIXRight}}
+      {{/each}}  
+      </div>
+		</div>
+		</div>
+		<div class="two fields">
+		<div class="field">
+		  <label>CN X</label>
+		  <div class="tiny fluid ui button" id="cnXLeftlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnXLeft}}
+        {{cnXLeft}}
+      {{/each}}  
+      </div>  
+		</div>
+		<div class="field">
+		  <label>CN X</label>
+		  <div class="tiny fluid ui button" id="cnXRightlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnXRight}}
+        {{cnXRight}}
+      {{/each}}  
+      </div>
+		</div>
+		</div>
+		<div class="two fields">
+		<div class="field">
+		  <label>CN XI</label>
+		  <div class="tiny fluid ui button" id="cnXILeftlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnXILeft}}
+        {{cnXILeft}}
+      {{/each}}  
+      </div>  
+		</div>
+		<div class="field">
+		  <label>CN XI</label>
+		  <div class="tiny fluid ui button" id="cnXIRightlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnXIRight}}
+        {{cnXIRight}}
+      {{/each}}  
+      </div>
+		</div>
+		</div>
+		<div class="two fields">
+		<div class="field">
+		  <label>CN XII</label>
+		  <div class="tiny fluid ui button" id="cnXIILeftlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnXIILeft}}
+        {{cnXIILeft}}
+      {{/each}}  
+      </div>
+		</div>
+		<div class="field">
+		  <label>CN XII</label>
+		  <div class="tiny fluid ui button" id="cnXIIRightlabel">
+      {{#each exam in model.exams}}
+        {{exam.cnXIIRight}}
+        {{cnXIIRight}}
+      {{/each}}  
+      </div>
+		</div>
+		</div>
+      </div> 
+    </div>
+
+
+  <!--
+  LABS
+  -->
+ <h3 class="ui dividing header">Labs</h3>
+    <h4 class="ui block top attached header">Endocrine Panel</h4>
+    	<div class="ui bottom attached secondary segment">
+        	<div class="field">
+        <label>Date of Lab</label>
+          <div class="tiny fluid ui button">
+          {{#each lab in model.labs}}
+            {{moment lab.dateOfLab 'MM-DD-YYYY'}}
+          {{/each}}</div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>T3</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.T3}} ng/dL
+            {{/each}}
+          </div>
+        </div>
+        <div class="field">
+          <label>Free T4</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.T4}} ng/dL
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>TSH</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.TSH}} %
+            {{/each}}
+          </div>
+        </div>
+        <div class="field">
+          <label>T3 Uptake</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.T3uptake}} ul U/mL
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>AM Cortisol</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.AMcortisol}} ug/dL
+            {{/each}}
+          </div>
+        </div>
+        <div class="field">
+          <label>PM Cortisol</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.PMcortisol}} ug/dL
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Prolactin</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.prolactin}} ng/mL
+            {{/each}}
+          </div>
+        </div>
+        <div class="field">
+          <label>Somatomedin</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.somatomedin}} ng/dL
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Testosterone</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.testosterone}} ng/mL
+            {{/each}}
+          </div>
+        </div>
+        <div class="field">
+          <label>Growth Hormone</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.growthHormone}} ng/mL
+            {{/each}}
+          </div>        
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <label>Free Testosterone & Estrogen</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.freeTestEst}} Total
+            {{/each}}
+          </div>
+        </div>
+        <div class="field">
+          <label>Aldosterone</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.aldosterone}} mL U/mL
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <div class="three fields">
+        <div class="field">
+          <label>LS</label>
+            <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.LS}} mL U/mL
+            {{/each}}
+          </div>
+        </div>
+        <div class="field">
+          <label>FSH</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.FSH}} mL U/mL
+            {{/each}}
+          </div>
+        </div>
+        <div class="field">
+          <label>ACTH</label>
+          <div class="tiny fluid ui button">
+            {{#each lab in model.labs}}
+              {{lab.ACTH}} pg/mL
+            {{/each}}
+          </div>
+        </div>
+      </div>
+        
+    	</div>
+
+  <!--
+  IMAGING
+  -->
+
+  <h3 class="ui dividing header">Imaging</h3>
+    <div class="two fields">
+      <div class="field">
+        <label>Date of Scan</label>
+        <div class="tiny fluid ui button">
+          {{#each scan in model.imagings}}
+              {{moment scan.dateOfScan "MM-DD-YYYY"}}
+            {{/each}}
+         </div>
+      </div>
+      <div class="field">
+        <label>Scan Type</label>
+        <div class="tiny fluid ui button">
+            {{#each scan in model.imagings}}
+              {{scan.scanType}}
+            {{/each}}
+        </div>
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Tumor Size</label>
+          <div class="tiny fluid ui button">
+            {{#each scan in model.imagings}}
+              {{scan.tumorSize}}
+            {{/each}}
+          </div>
+      </div>
+      <div class="field">
+        <label>Tumor Location</label>
+        <div class="tiny fluid ui button">
+            {{#each scan in model.imagings}}
+              {{scan.tumorLocation}}
+            {{/each}}
+          </div>
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Metastasis</label>
+        <div class="tiny fluid ui button">
+            {{#each scan in model.imagings}}
+              {{scan.metastasis}}
+            {{/each}}
+          </div>
+      </div>
+      <div class="field">
+        <label>Lateral Expansion</label>
+        <div class="tiny fluid ui button">
+            {{#each scan in model.imagings}}
+              {{scan.lateralExpansion}}
+            {{/each}}
+          </div>
+        </div>
+    </div>
+
+  <!--
+  PATHOLOGY
+  -->
+
+  <h3 class="ui dividing header">Pathology</h3>
+    <div class="two fields">
+      <div class="field">
+        <label>Date of Surgical Pathology Report</label>
+          <div class="tiny fluid ui button">
+            {{#each path in model.pathologies}}
+              {{moment path.dateOfSurgPathReport "MM-DD-YYYY"}}
+            {{/each}}
+          </div>
+      </div>
+      <div class="field">
+        <label>Histologic Diagnosis</label>
+        <div class="tiny fluid ui button">
+            {{#each path in model.pathologies}}
+              {{path.histologicDiagnosis}}
+            {{/each}}
+        </div>
+      </div>
+    </div>
+
+    <div class="two fields">
+      
+      <div class="field">
+        <label>Tumor Description</label>
+        <div class="tiny fluid ui button">
+            {{#each path in model.pathologies}}
+              {{path.tumorDescription}}
+            {{/each}}
+        </div>
+      </div>
+    </div>
+    <br>
+    

@@ -18,7 +18,7 @@
       <div class="field">
         <label>Date of Admission</label>
         <div class="field">
-            <input type="text" name="last-name" placeholder="MM-DD-YYYY">
+            {{input type="text" value=dateOfAdmission placeholder="MM-DD-YYYY"}}
         </div>
       </div>
     </div>
@@ -27,14 +27,14 @@
       <div class="field">
         <label>Date of Discharge</label>
           <div class="field">
-            <input type="text" name="last-name" placeholder="MM-DD-YYYY">
+            {{input type="text" value=dateOfDischarge placeholder="MM-DD-YYYY"}}
           </div>
       </div>
       <div class="field">
         <label>Operating Surgeon</label>
         {{ember-selectize
             content=controller.operatingSurgeon
-            selection=controller.item
+            selection=controller.selectedOperatingSurgeon
             placeholder="Select an item"
             multiple="true"}}
       </div>
@@ -51,13 +51,18 @@
           {{ember-selectize
             content=controller.tumorLocation
             
-            selection=model.item
+            selection=controller.selectedTumorLocation
             placeholder="Select an item"
             multiple="true"}}
       </div>
       <div class="field">
         <label>Resection</label>
-        {{ui-dropdown class='ui selection dropdown' content=resection prompt='Select Pre-Operative Diagnosis'}}
+        {{ember-selectize
+            content=controller.resection
+            
+            selection=controller.selectedResection
+            placeholder="Select an item"
+            multiple="true"}}
       </div>
     </div>
 
@@ -67,7 +72,7 @@
           {{ember-selectize
             content=controller.approach
             
-            selection=model.item
+            selection=controller.selectedApproach
             placeholder="Select an item"
             multiple="true"}}
       </div>
@@ -76,7 +81,7 @@
         {{ember-selectize
             content=controller.repairMaterial
             
-            selection=model.item
+            selection=controller.selectedRepairMaterial
             placeholder="Select an item"
             multiple="true"}}
       </div>
@@ -92,20 +97,13 @@
   -->
 
   <h3 class="ui dividing header">Complications</h3>
-    <div class="field">
-      <div class="two ui fluid buttons">
-        <div class="ui positive button">Present</div>
-        <div class="or"></div>
-        <div class="ui button">Not Present</div>
-      </div>
-    </div>
 
     <div class="field">
       <label>Complications</label>
         {{ember-selectize
             content=controller.complications
             
-            selection=model.item
+            selection=controller.selectedComplications
             placeholder="Select an item"
             multiple="true"}}
     </div>

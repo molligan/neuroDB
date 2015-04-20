@@ -4,10 +4,9 @@ var Patient = DS.Model.extend({
 	lastName: DS.attr('string'),
 	firstName: DS.attr('string'),
 	mrn: DS.attr('string'),
-	dateOfBirth: DS.attr('string'),
+	dateOfBirth: DS.attr('date'),
 	gender: DS.attr('string'),
-	encounters: DS.hasMany('encounter', {async: true}),
-	surgeries: DS.hasMany('surgery', {async: true})
+	encounters: DS.hasMany('encounter', {async: true})
 });
 
 export default Patient;

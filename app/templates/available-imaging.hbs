@@ -1,0 +1,57 @@
+<div class="two fields">
+      <div class="field">
+        <label>Date of Scan</label>
+          {{input type="text" value=dateOfScan disabled=controller.imagingDisabled placeholder="MM-DD-YYYY"}}
+      </div>
+      <div class="field">
+        <label>Scan Type</label>
+        {{ember-selectize
+            content=controller.scanType
+            selection=controller.selectedScanType
+            disabled=controller.imagingDisabled
+            maxItems=1
+            placeholder="Select a Scan Type"}}
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Tumor Size</label>
+          {{ember-selectize
+            content=controller.tumorSize
+            maxItems = 1
+            disabled=controller.imagingDisabled
+            selection=controller.selectedTumorSize
+            placeholder="Select Tumor Size"}}
+      </div>
+      <div class="field">
+        <label>Tumor Location</label>
+        {{ember-selectize
+            content=controller.tumorLocation
+            selection=controller.selectedTumorLocation
+            disabled=controller.imagingDisabled
+            placeholder="Select Tumor Location(s)"
+            multiple="true"}}
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Metastasis</label>
+        {{ember-selectize
+            content=controller.metastasis
+            selection=controller.selectedMetastasis
+            disabled=controller.imagingDisabled
+            maxItems=1
+            placeholder="Select Metastsis"}}
+      </div>
+      <div class="field">
+        <label>Lateral Expansion</label>
+        {{ember-selectize
+            content=controller.lateralExpansion
+            selection=controller.selectedLateralExpansion
+            disabled=controller.imagingDisabled
+            maxItems=1
+            placeholder="Select Knosp Grade"}}
+        </div>
+    </div>
